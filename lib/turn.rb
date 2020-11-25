@@ -43,8 +43,17 @@ def turn_count(board)
   counter
 end
 
-def turn(board)
+def turn(input)
   puts "Please enter 1-9:"
-  board = gets.strip.to_i
-  board = input_to_index(board)
+  input = gets.strip
+  index = input_to_index(board)
+  if valid_move?(board, index)
+    move(board, index)
+    display_board(board)
+  else 
+    turn(board)
+  end 
+end 
+
+  
 end 
